@@ -7,7 +7,7 @@ class Application
     if req.path.match("/items/")
       binding.pry
       item = req.path.split("/").last
-      if Item.items.find{|t| t.name == item}
+      if self.class.items.find{|t| t.name == item}
         binding.pry
         price = Item.items.find{|t| t.name == item}.price
         resp.write price
