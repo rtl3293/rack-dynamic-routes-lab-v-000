@@ -9,7 +9,7 @@ class Application
       item = req.path.split("/").last
       if self.class.items.find{|t| t.name == item}
         binding.pry
-        price = Item.items.find{|t| t.name == item}.price
+        price = self.class.items.find{|t| t.name == item}.price
         resp.write price
       else
         resp.write "Item not found"
